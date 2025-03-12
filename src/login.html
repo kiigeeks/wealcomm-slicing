@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./output.css" rel="stylesheet">
+    </head>
+    <body>
+        <main class="w-screen min-h-screen flex justify-center items-center bg-gradient-primary p-5">
+            <section class="bg-background rounded-3xl px-10 py-12 flex flex-col gap-7 w-11/12 md:w-[30%] font-opensans shadow-lg text-black-primary">
+                <div class="flex flex-col justify-center items-center gap-6">
+                    <img src="./images/icon-2.png" alt="Logo" class="h-11 w-fit">
+                    <h1 class="font-bold tracking-[5px] uppercase text-2xl">login</h1>
+                </div>
+
+                <form class="mt-6" action="index.html">
+                    <label class="block text-sm font-semibold mb-1">Email</label>
+                    <input type="email" placeholder="your@mail.com"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic">
+        
+                    <label class="block text-sm font-semibold mt-4 mb-1">Password</label>
+                    <div class="relative">
+                        <input type="password"
+                            class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none">
+                        <span class="absolute inset-y-0 right-3 flex items-center text-gray-secondary cursor-pointer">
+                            <img src="./images/show.svg" alt="Show" class="w-5 h-5 filter grayscale opacity-50">
+                        </span>
+                    </div>
+        
+                    <div class="text-right mt-2">
+                        <a href="#" class="text-blue-primary text-sm hover:underline">Forgot Password?</a>
+                    </div>
+        
+                    <button type="submit"
+                        class="w-full bg-gradient-primary text-white font-semibold py-2 mt-10 rounded-lg shadow-lg hover:opacity-90 cursor-pointer tracking-wide">
+                        Login
+                    </button>
+                </form>
+                <p class="text-center text-sm mt-4">Don't have an account? 
+                    <a href="register.html" class="text-blue-primary font-semibold hover:underline uppercase">REGISTER HERE</a>
+                </p>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./output.css" rel="stylesheet">
+    </head>
+    <body>
+        <main class="w-screen min-h-screen flex justify-center items-center bg-gradient-primary p-5 overflow-hidden">
+            <section class="bg-background rounded-3xl px-5 py-12 flex flex-col gap-7 w-11/12 md:w-[30%] font-opensans shadow-lg text-black-primary">
+                <div class="flex flex-col justify-center items-center gap-6">
+                    <img src="./images/icon-2.png" alt="Logo" class="h-11 w-fit">
+                    <div class="relative w-full">
+                        <a href="login.html" class="absolute inset-y-0 left-0 flex items-center text-gray-secondary cursor-pointer">
+                            <img src="./images/back.svg" alt="Back" class="w-6 h-6 filter grayscale opacity-80">
+                        </a>
+                        <h1 class="font-bold tracking-[5px] uppercase text-2xl text-center">daftar</h1>
+                    </div>
+                </div>
+
+                <form class="mt-6 flex flex-col" action="index.html">
+                    <label class="block text-sm font-semibold mb-1">Nama Lengkap</label>
+                    <input type="email" placeholder="Nama Lengkap"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic">
+                    <label class="block text-sm font-semibold mt-4 mb-1">Email</label>
+                    <input type="email" placeholder="your@mail.com"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic">
+                    <label class="block text-sm font-semibold mt-4 mb-1">Tanggal Lahir</label>
+                    <input type="date"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic">
+                    <label class="block text-sm font-semibold mt-4 mb-1">Phone (WA)</label>
+                    <input type="number" placeholder="081234567890"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic">
+                    <label class="block text-sm font-semibold mt-4 mb-1">Alamat</label>
+                    <textarea type="address" rows="4"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic"></textarea>
+                    <label class="block text-sm font-semibold mt-4 mb-1">Kode Referal</label>
+                    <input type="text"
+                        class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none placeholder:italic">
+                    <span class="text-xs text-red-primary font-light">Kode Tidak Tersedia</span>          
+                    <label class="block text-sm font-semibold mt-4 mb-1">Password</label>
+                    <div class="relative">
+                        <input type="password"
+                            class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none">
+                        <span class="absolute inset-y-0 right-3 flex items-center text-gray-secondary cursor-pointer">
+                            <img src="./images/show.svg" alt="Show" class="w-5 h-5 filter grayscale opacity-50">
+                        </span>
+                    </div>
+                    <label class="block text-sm font-semibold mt-4 mb-1">Konfirmasi Password</label>
+                    <div class="relative">
+                        <input type="password"
+                            class="w-full px-4 py-2 border border-gray-secondary rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-0 outline-none">
+                        <span class="absolute inset-y-0 right-3 flex items-center text-gray-secondary cursor-pointer">
+                            <img src="./images/show.svg" alt="Show" class="w-5 h-5 filter grayscale opacity-50">
+                        </span>
+                    </div>
+        
+                    <button type="submit"
+                        class="w-full bg-gradient-primary text-white font-semibold py-2 mt-14 rounded-lg shadow-lg hover:opacity-90 cursor-pointer tracking-wide">
+                        Submit
+                    </button>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
