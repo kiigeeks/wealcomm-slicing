@@ -1,0 +1,434 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ded6ff2c1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+</head>
+
+
+<style>
+    html,
+    body {
+        overflow: hidden;
+    }
+
+    .swiper {
+        overflow: visible;
+    }
+</style>
+
+<body>
+    <main class="md:max-w-[500px] min-h-screen h-full w-full md:w-[500px] relative justify-self-center">
+        <!-- header -->
+        <section class="mb-0 md:mb-5 py-1 h-16 w-full flex items-center relative bg-gradient-primary px-5">
+            <div class="h-11 w-fit">
+                <img src="./images/icon-3.png" alt="Logo" class="h-8 w-fit">
+            </div>
+        </section>
+        <!-- content -->
+        <section class="mt-3 mb-20 px-3 pb-7 flex flex-col w-screen md:w-[500px] max-h-screen pb-40">
+            <p
+                class=" bg-gradient-to-r mb-5 from-[#3257D0] to-[#0092FF] bg-clip-text text-lg text-transparent text-center text-lg font-semibold">
+                Network
+            </p>
+            <div
+                class="flex items-center mb-12 justify-between gap-2 px-6 py-3 my-2 border border-gray-600 rounded-xl focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-0">
+                <input type="text" placeholder="Search Member..."
+                    class="w-full text-gray-600 outline-none bg-transparent placeholder:italic focus:outline-none">
+                <img src="./images/search.svg" alt="Search" class="w-6 h-6 filter opacity-80">
+            </div>
+
+            <div
+                class="flex flex-col flex-grow w-[75%] mx-auto overflow-y-auto overflow-x-clip flex flex-col items-center space-y-10">
+                <!-- Parent -->
+                <div class="space-y-3">
+                    <div class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                        <i class="fa-regular fa-user text-white text-5xl" aria-hidden="true"></i>
+                        <img src="images/check-circle.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                    </div>
+                    <p class="max-w-20 text-center">Carla Levin</p>
+                </div>
+                <!-- Children -->
+                <div class="swiper mySwiper w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center  bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper mySwiper w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center  bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper mySwiper w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center  bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper mySwiper w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center  bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper mySwiper w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center  bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jaydon Rhiel</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide ">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-20 h-20 flex justify-center items-center bg-[#CEEBFF] rounded-full relative">
+                                    <i class="fa-regular fa-user text-white text-5xl"></i>
+                                    <img src="images/warning.svg" alt="" class="absolute top-0 right-0 h-6 w-auto">
+                                </div>
+                                <p class="max-w-20 text-center">Jakob Korsgaard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </section>
+        <!-- navigation -->
+        <section
+            class="fixed bottom-0 z-40 rounded-b-3xl bg-white-primary h-16 md:max-w-[500px] w-full flex justify-center shadow-navigation">
+            <div class="flex justify-between items-center w-4/5">
+                <div className="flex flex-col items-center gap-1 relative">
+                    <a href="member.html" className="w-16 h-16 cursor-pointer">
+                        <img src="./images/member.svg" alt="Member" class="w-full h-full">
+                    </a>
+                </div>
+                <div className="flex flex-col items-center gap-1 relative">
+                    <a href="network_1.html" className="w-16 h-16 cursor-pointer">
+                        <img src="./images/network-active.svg" alt="Network" class="w-full h-full">
+                    </a>
+                </div>
+                <div className="flex flex-col items-center gap-1 relative">
+                    <a href="add.html" className="w-16 h-16 cursor-pointer">
+                        <img src="./images/add.svg" alt="Add Member" class="w-full h-full">
+                    </a>
+                </div>
+                <div className="flex flex-col items-center gap-1 relative">
+                    <a href="transaction.html" className="w-16 h-16 cursor-pointer">
+                        <img src="./images/transaction.svg" alt="Transaction" class="w-full h-full">
+                    </a>
+                </div>
+                <div className="flex flex-col items-center gap-1 relative">
+                    <a href="profile.html" className="w-16 h-16 cursor-pointer">
+                        <img src="./images/profile.svg" alt="Profile" class="w-full h-full">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var swipers = document.querySelectorAll(".mySwiper");
+
+        swipers.forEach(swiperContainer => {
+            var swiper = new Swiper(swiperContainer, {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                loop: false,
+                autoHeight: false,
+            });
+
+            const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
+            const slides = swiperContainer.querySelectorAll(".swiper-slide ");
+
+            slides.forEach(slide => {
+                const imgElement = slide.querySelector("img");
+
+                slide.addEventListener("click", function () {
+                    let isCentered = slide.classList.contains("centered");
+
+                    if (isCentered) {
+                        // Show all slides
+                        slides.forEach(s => {
+                            s.style.display = "block";
+                            const sImg = s.querySelector("img");
+                            if (sImg) sImg.src = "images/warning.svg"; // Change back to warning
+                        });
+
+                        swiper.enable();
+                        swiperWrapper.style.transform = "";
+                        slide.style.margin = "0 0";
+                        slide.classList.remove("centered");
+
+                        // Timeout to update Swiper properly
+                        setTimeout(() => {
+                            swiper.update();
+                        }, 100);
+                    } else {
+                        // Show only the clicked slide
+                        slides.forEach(s => {
+                            if (s !== slide) {
+                                s.style.display = "none";
+                            }
+                        });
+
+                        swiper.disable();
+                        swiperWrapper.style.transform = "none";
+                        slide.style.margin = "0 auto";
+                        slide.classList.add("centered");
+
+                        if (imgElement) {
+                            imgElement.src = "images/check-circle.svg"; // Change to check-circle
+                        }
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+
+
+
+</html>
