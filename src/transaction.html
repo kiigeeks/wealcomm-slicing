@@ -1,502 +1,425 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
-  </head>
-  <style>
+</head>
+<style>
     html,
     body {
-      overflow: hidden;
+        overflow: hidden;
     }
-  </style>
 
-  <body>
+    .slideDown {
+        animation-name: slideDown;
+        -webkit-animation-name: slideDown;
+
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+
+        animation-timing-function: ease;
+        -webkit-animation-timing-function: ease;
+
+        visibility: visible !important;
+    }
+
+    .easeIn {
+        animation: easeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        -webkit-animation: easeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        visibility: visible !important;
+    }
+
+    @keyframes easeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.95) translateY(-10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY(-100%);
+        }
+
+        50% {
+            transform: translateY(8%);
+        }
+
+        65% {
+            transform: translateY(-4%);
+        }
+
+        80% {
+            transform: translateY(4%);
+        }
+
+        95% {
+            transform: translateY(-2%);
+        }
+
+        100% {
+            transform: translateY(0%);
+        }
+    }
+
+    @-webkit-keyframes slideDown {
+        0% {
+            -webkit-transform: translateY(-100%);
+        }
+
+        50% {
+            -webkit-transform: translateY(8%);
+        }
+
+        65% {
+            -webkit-transform: translateY(-4%);
+        }
+
+        80% {
+            -webkit-transform: translateY(4%);
+        }
+
+        95% {
+            -webkit-transform: translateY(-2%);
+        }
+
+        100% {
+            -webkit-transform: translateY(0%);
+        }
+    }
+</style>
+
+<body>
+
     <!-- Modal -->
-    <div
-      id="progress-modal"
-      tabindex="-1"
-      aria-hidden="true"
-      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-    >
-      <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
-        <div
-          class="relative bg-white rounded-lg shadow-sm items-center dark:bg-gray-700"
-        >
-          <div class="p-4 md:p-5">
-            <img
-              src="./images/avatar.jpeg"
-              alt="Avatar"
-              class="w-16 h-16 rounded-full object-cover object-top"
-            />
-            <p class="text-lg font-semibold text-gray-900">Ahmad Luthfi</p>
-            <p class="text-lg text-gray-500 dark:text-gray-400">
-              @Official_AhmadLuthfi
-            </p>
-            <p class="text-gray-500 dark:text-gray-400 mb-6">
-              Choosing the right server storage solution is essential for
-              maintaining data integrity.
-            </p>
-            <p></p>
-            <p class="mt-8 text-lg">Bonus</p>
-            <p class="text-lg text-bold">
-              <span class="text-md relative -top-1">Rp</span>25.000
-            </p>
-            <p class="mt-8 text-lg">New Member</p>
-            <p class="text-xl text-bold">Carlos Vela</p>
-            <button class="mt-8 w-full">Pay Now</button>
-          </div>
+    <div id="payment-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full bg-black/50">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow-sm">
+                <div class="p-4 md:p-5 flex flex-col items-center">
+                    <img src="./images/avatar.jpeg" alt="Avatar" class="w-24 h-24 rounded-full object-cover object-top">
+                    <div class="mt-4 flex flex-col items-center">
+                        <p class="text-lg font-semibold text-gray-900">Ahmad Luthfi</p>
+                        <p class="text-lg text-gray-500 dark:text-gray-400">@Official_AhmadLuthfi</p>
+                    </div>
+                    <div class="mt-4 flex flex-col items-center">
+                        <p class="text-lg">Bonus</p>
+                        <p class="text-xl font-bold flex items-center">
+                            <span class="text-lg relative -top-1">Rp</span>25.000
+                            <img id="status" src="./images/warning.svg" alt="Badge"
+                                class="w-6 h-6 ms-2 rounded-full bg-white">
+                        </p>
+                    </div>
+                    <div class="mt-4 flex flex-col items-center">
+                        <p class="text-lg">New Member</p>
+                        <p class="text-2xl font-bold">Carlos Vela</p>
+                    </div>
+                    <div id="paid-section" class="mt-4 flex flex-col items-center hidden">
+                        <p class="text-lg">Paid</p>
+                        <p class="text-2xl font-bold">12 Maret 2025</p>
+                    </div>
+                    <button id="pay-button" type="button"
+                        class="w-full bg-gradient-primary flex items-center justify-center text-white font-semibold py-4 mt-4 rounded-lg shadow-lg hover:opacity-90 cursor-pointer tracking-wide">
+                        <img src="./images/money.svg" alt="Money" class="w-8 h-auto me-4 rounded-full"> Pay Now
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
+    <main class="md:max-w-[500px] min-h-screen h-full w-full md:w-[500px] relative justify-self-center">
+        <!-- header -->
+        <section
+            class="fixed top-0 z-40 mb-0 md:mb-5 py-1 h-16 w-full flex items-center relative bg-gradient-primary px-5">
+            <div class="h-11 w-fit">
+                <img src="./images/icon-3.png" alt="Logo" class="h-8 w-fit">
+            </div>
+        </section>
+        <!-- content -->
+        <section
+            class="mt-4 mb-16 px-3 pb-7 flex flex-col gap-5 w-screen md:w-[500px] max-h-screen pb-40 overflow-y-auto">
+            <div class="relative w-full items-center">
+                <h1 class="capitalize font-medium text-lg  text-center">
+                    Transaction (89)
+                </h1>
+            </div>
+            <div
+                class="flex items-center justify-between  px-6 py-3 border border-gray-600 rounded-xl focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-0">
+                <input type="text" placeholder="Search Member..."
+                    class="w-full text-gray-600 outline-none bg-transparent placeholder:italic focus:outline-none">
+                <img src="./images/search.svg" alt="Search" class="w-6 h-6 filter opacity-80">
+            </div>
+            <div class="flex items-center space-x-2 overflow-x-auto  min-h-12">
+                <a href="transaction.html"
+                    class="bg-blue-500 px-4 py-2 rounded-xl text-white min-w-[100px] text-center">All</a>
+                <a href="transaction_unpaid.html"
+                    class="border border-[#E5E4FB] px-4 py-2 rounded-xl text-gray-500 min-w-[100px] text-center">Unpaid</a>
+                <a href="transaction_paid.html"
+                    class="border border-[#E5E4FB] px-4 py-2 rounded-xl text-gray-500 min-w-[100px] text-center">Paid</a>
+            </div>
+            <div class="cards space-y-4 flex flex-col flex-grow overflow-y-scroll px-1 py-2">
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/warning.svg" alt="Badge"
+                                class="status warning w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/warning.svg" alt="Badge"
+                                class="status warning w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/warning.svg" alt="Badge"
+                                class="status warning w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/warning.svg" alt="Badge"
+                                class="status warning w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-    <main
-      class="md:max-w-[500px] min-h-screen h-full w-full md:w-[500px] relative justify-self-center"
-    >
-      <!-- header -->
-      <section
-        class="fixed top-0 z-40 mb-0 md:mb-5 py-1 h-16 w-full flex items-center relative bg-gradient-primary px-5"
-      >
-        <div class="h-11 w-fit">
-          <img src="./images/icon-3.png" alt="Logo" class="h-8 w-fit" />
-        </div>
-      </section>
-      <!-- content -->
-      <section
-        class="mt-4 mb-16 px-3 pb-7 flex flex-col gap-5 w-screen md:w-[500px] max-h-screen pb-40 overflow-y-auto"
-      >
-        <div class="relative w-full items-center">
-          <h1 class="capitalize font-medium text-lg text-center">
-            Transaction (89)
-          </h1>
-        </div>
-        <div
-          class="flex items-center justify-between px-6 py-3 border border-gray-600 rounded-xl focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-0"
-        >
-          <input
-            type="text"
-            placeholder="Search Member..."
-            class="w-full text-gray-600 outline-none bg-transparent placeholder:italic focus:outline-none"
-          />
-          <img
-            src="./images/search.svg"
-            alt="Search"
-            class="w-6 h-6 filter opacity-80"
-          />
-        </div>
-        <div class="flex items-center space-x-2 overflow-x-auto py-5">
-          <a
-            href="transaction.html"
-            class="bg-blue-500 px-4 py-2 rounded-xl text-white min-w-[100px] text-center"
-            >All</a
-          >
-          <a
-            href="transaction_unpaid.html"
-            class="border border-gray-400 px-4 py-2 rounded-xl text-gray-500 min-w-[100px] text-center"
-            >Unpaid</a
-          >
-          <a
-            href="transaction_paid.html"
-            class="border border-gray-400 px-4 py-2 rounded-xl text-gray-500 min-w-[100px] text-center"
-            >Paid</a
-          >
-        </div>
-        <div
-          class="cards space-y-4 flex flex-col flex-grow overflow-y-scroll px-1 py-2"
-        >
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/warning.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/check-circle.svg" alt="Badge"
+                                class="status success w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                    <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
+                        12 Maret 2025
+                    </p>
+                </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/check-circle.svg" alt="Badge"
+                                class="status success w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                    <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
+                        12 Maret 2025
+                    </p>
+                </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/check-circle.svg" alt="Badge"
+                                class="status success w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                    <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
+                        12 Maret 2025
+                    </p>
+                </div>
+                <div class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-16 h-16">
+                            <img src="./images/avatar.jpeg" alt="Avatar"
+                                class="w-16 h-16 rounded-full object-cover object-top">
+                            <img src="./images/check-circle.svg" alt="Badge"
+                                class="status success w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white">
+                        </div>
+                        <div class="ms-1">
+                            <p class="capitalize lg:text-lg font-medium">
+                                ahmad luthfi
+                            </p>
+                            <p class="lg:text-lg text-gray-400">
+                                <span class="text-sm relative -top-1">Rp</span>25.000
+                            </p>
+                        </div>
+                    </div>
+                    <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
+                        12 Maret 2025
+                    </p>
+                </div>
+                
             </div>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/warning.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
+        </section>
+        <!-- navigation -->
+        <section
+            class="fixed bottom-0 z-40 rounded-b-3xl bg-white-primary h-16 md:max-w-[500px] w-full flex justify-center shadow-navigation">
+            <div class="flex justify-between items-center w-4/5">
+                <div className="flex flex-col items-center gap-1">
+                    <a href="member.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/member.svg" alt="Member" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Member</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="network_1.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/network.svg" alt="Network" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Network</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="add.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/add.svg" alt="Add" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Add</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="transaction.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/transaction-active.svg" alt="Transaction" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-blue-primary text-center">Transaction</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="profile.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/profile.svg" alt="Profile" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Profile</p>
+                </div>
             </div>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/warning.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/warning.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/warning.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/warning.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-          <div
-            class="w-full flex items-center justify-between rounded-2xl bg-white-secondary p-5 shadow-sm"
-          >
-            <div class="flex items-center gap-4">
-              <div class="relative w-16 h-16">
-                <img
-                  src="./images/avatar.jpeg"
-                  alt="Avatar"
-                  class="w-16 h-16 rounded-full object-cover object-top"
-                />
-                <img
-                  src="./images/check-circle.svg"
-                  alt="Badge"
-                  class="w-6 h-6 ms-1 rounded-full absolute bottom-0 right-0 translate-x-2 bg-white"
-                />
-              </div>
-              <div class="ms-1">
-                <p class="capitalize lg:text-lg font-medium">ahmad luthfi</p>
-                <p class="lg:text-lg text-gray-400">
-                  <span class="text-sm relative -top-1">Rp</span>25.000
-                </p>
-              </div>
-            </div>
-            <p class="capitalize text-right lg:text-lg text-gray-400 self-end">
-              12 Maret 2025
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- navigation -->
-      <section
-        class="fixed bottom-0 z-40 rounded-b-3xl bg-white-primary h-16 md:max-w-[500px] w-full flex justify-center shadow-navigation"
-      >
-        <div class="flex justify-between items-center w-4/5">
-          <div className="flex flex-col items-center gap-1">
-            <a
-              href="member.html"
-              class="cursor-pointer flex items-center justify-center mb-1"
-            >
-              <img src="./images/member.svg" alt="Member" class="w-6 h-6" />
-            </a>
-            <p class="text-xs text-gray-500 text-center">Member</p>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <a
-              href="network_1.html"
-              class="cursor-pointer flex items-center justify-center mb-1"
-            >
-              <img src="./images/network.svg" alt="Network" class="w-6 h-6" />
-            </a>
-            <p class="text-xs text-gray-500 text-center">Network</p>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <a
-              href="add.html"
-              class="cursor-pointer flex items-center justify-center mb-1"
-            >
-              <img src="./images/add.svg" alt="Add" class="w-6 h-6" />
-            </a>
-            <p class="text-xs text-gray-500 text-center">Add</p>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <a
-              href="transaction.html"
-              class="cursor-pointer flex items-center justify-center mb-1"
-            >
-              <img
-                src="./images/transaction-active.svg"
-                alt="Transaction"
-                class="w-6 h-6"
-              />
-            </a>
-            <p class="text-xs text-blue-primary text-center">Transaction</p>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <a
-              href="profile.html"
-              class="cursor-pointer flex items-center justify-center mb-1"
-            >
-              <img src="./images/profile.svg" alt="Profile" class="w-6 h-6" />
-            </a>
-            <p class="text-xs text-gray-500 text-center">Profile</p>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
-  </body>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".cards > div");
+        const modal = document.getElementById("payment-modal");
+        const payButton = document.getElementById("pay-button");
+        const paidSection = document.getElementById("paid-section");
+        const status = document.getElementById("status");
+
+        cards.forEach(card => {
+            card.addEventListener("click", function () {
+                const statusImg = card.querySelector(".status");
+                if (statusImg.classList.contains("warning")) {
+                    modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+                } else if (statusImg.classList.contains("success")) {
+                    modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+                    // show with no animation if already paid/success
+                    paidSection.classList.remove("hidden");
+                    payButton.setAttribute("disabled", "true");
+                    payButton.className = "w-full bg-[#DEDEE7] flex items-center justify-center text-gray-500 font-semibold py-4 mt-4 rounded-lg shadow-[inset_-8px_-8px_15px_#1B2A5B26] active:shadow-[inset_8px_8px_15px_#1B2A5B26] hover:opacity-90 cursor-pointer tracking-wide";
+                    status.src = "./images/check-circle.svg";
+                }
+            });
+        });
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+                paidSection.classList.add("hidden");
+                payButton.classList.remove("hidden");
+            }
+        });
+
+        payButton.addEventListener("click", function () {
+            payButton.className = "w-full bg-[#DEDEE7] flex items-center justify-center text-gray-500 font-semibold py-4 mt-4 rounded-lg shadow-[inset_-8px_-8px_15px_#1B2A5B26] active:shadow-[inset_8px_8px_15px_#1B2A5B26] hover:opacity-90 cursor-pointer tracking-wide";
+            payButton.classList.add('slideDown');
+            paidSection.classList.remove('hidden');
+            paidSection.classList.add('slideDown');
+            payButton.setAttribute("disabled", "true");
+            setTimeout(() => {
+                status.src = "./images/check-circle.svg";
+                status.classList.add("easeIn");
+            }, 200);
+
+            // ubah status card
+            const activeCard = document.querySelector(".cards > div:not(.paid)");
+            if (activeCard) {
+                const statusImg = activeCard.querySelector(".status");
+                statusImg.classList.remove("warning");
+                statusImg.classList.add("success");
+                statusImg.src = "./images/check-circle.svg";
+            }
+        });
+    });
+</script>
+
 </html>
