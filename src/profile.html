@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ded6ff2c1.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    html,
+    body {
+        overflow: hidden;
+    }
+</style>
+
+<body>
+    <main class="md:max-w-[500px] min-h-screen h-full w-full md:w-[500px] relative justify-self-center">
+        <!-- header -->
+        <section class="mb-0 md:mb-5 py-1 h-16 w-full flex items-center relative bg-gradient-primary px-5">
+            <div class="h-11 w-fit">
+                <img src="./images/icon-3.png" alt="Logo" class="h-8 w-fit">
+            </div>
+        </section>
+        <!-- content -->
+        <section class="mt-3 mb-20 px-3 flex flex-col w-screen md:w-[500px] max-h-screen pb-40">
+            <p
+                class=" bg-gradient-to-r mb-5 from-[#3257D0] to-[#0092FF] bg-clip-text text-lg text-transparent text-center text-lg font-semibold">
+                Profile
+            </p>
+            <div class="flex flex-grow flex-col pb-20 overflow-y-scroll px-1">
+                <div
+                    class="relative w-28 h-28 mx-auto rounded-full p-[3px] bg-gradient-to-r from-[#3257D0] to-[#0092FF]">
+                    <img src="images/person.png" alt="Profile" class="w-full h-full rounded-full">
+                </div>
+                <p class="text-center text-lg font-semibold">Jordyn Dorwart</p>
+                <p class="text-center ">@Jordyn_Official</p>
+                <div class="space-y-4">
+                    <div class="space-y-2 flex flex-col">
+                        <label for="fullname" class="text-sm">Nama Lengkap</label>
+                        <input type="text" name="fullname"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-10">
+                    </div>
+                    <div class="space-y-2 flex flex-col">
+                        <label for="address" class="text-sm">Alamat</label>
+                        <textarea name="address"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-20"></textarea>
+                    </div>
+                    <div class="space-y-2 flex flex-col">
+                        <label for="wa_number" class="text-sm">Nomor Whatsapp</label>
+                        <input type="number" name="wa_number"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-10">
+                    </div>
+                    <div class="space-y-2 flex flex-col">
+                        <label for="email" class="text-sm">Email</label>
+                        <input type="email" name="email"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-10">
+                    </div>
+                    <div class="space-y-2 flex flex-col">
+                        <label for="date_of_birth" class="text-sm">Tanggal Lahir</label>
+                        <input type="date" name="date_of_birth"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-10">
+                    </div>
+                    <div class="space-y-2 flex flex-col">
+                        <label for="referal_code" class="text-sm">Kode Referal</label>
+                        <input type="text" name="referal_code"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-10">
+                    </div>
+                    <hr class=" mt-6 h-0.5 text-gray-300">
+
+                    <div class="space-y-2 flex flex-col relative">
+                        <label for="passoword" class="text-sm">Password</label>
+                        <input id="passwordInput" type="password" name="passoword"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border-1  py-2 px-5 border-[#DEDEE7] rounded-xl min-h-10">
+                        <i id="togglePassword"
+                            class="fa-solid fa-eye absolute right-4 top-1/2  text-gray-500 cursor-pointer"></i>
+                    </div>
+                    <div class="space-y-2 flex flex-col relative">
+                        <label for="password_confirm" class="text-sm">Konfirmasi Password</label>
+                        <input id="confirmPasswordInput" type="password" name="password_confirm"
+                            class="focus:ring-2 focus:ring-blue-primary outline-none focus:border-0 bg-white border border-[#DEDEE7] py-2 px-5 pr-10 rounded-xl min-h-10 w-full">
+                        <i id="toggleConfirmPassword"
+                            class="fa-solid fa-eye absolute right-4 top-1/2  text-gray-500 cursor-pointer"></i>
+                    </div>
+                    <button class="w-[60%] py-3 px-6 bg-[#DEDEE7] font-bold text-[#8C8AA8] rounded-lg block mx-auto my-8 
+shadow-[inset_-8px_-8px_15px_#1B2A5B26] active:shadow-[inset_8px_8px_15px_#1B2A5B26] 
+hover:bg-[#CFCFE0] hover:text-[#6B6996] transition-all duration-300">
+                        Save Changes
+                    </button>
+
+                </div>
+            </div>
+        </section>
+        <!-- navigation -->
+        <section
+            class="fixed bottom-0 z-40 rounded-b-3xl bg-white-primary h-16 md:max-w-[500px] w-full flex justify-center shadow-navigation">
+            <div class="flex justify-between items-center w-4/5">
+                <div className="flex flex-col items-center gap-1">
+                    <a href="member.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/member.svg" alt="Member" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Member</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="network_1.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/network.svg" alt="Network" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Network</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="add.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/add.svg" alt="Add" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Add</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="transaction.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/transaction.svg" alt="Transaction" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-gray-500 text-center">Transaction</p>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                    <a href="profile.html" class="cursor-pointer flex items-center justify-center mb-1">
+                        <img src="./images/profile-active.svg" alt="Profile" class="w-6 h-6">
+                    </a>
+                    <p class="text-xs text-blue-primary  text-center">Profile</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script>
+
+    function togglePasswordVisibility(inputId, iconId) {
+        const passwordInput = document.getElementById(inputId);
+        const toggleIcon = document.getElementById(iconId);
+
+        toggleIcon.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
+    }
+
+    // Apply function to both password fields
+    togglePasswordVisibility("passwordInput", "togglePassword");
+    togglePasswordVisibility("confirmPasswordInput", "toggleConfirmPassword");
+
+</script>
+
+</html>
